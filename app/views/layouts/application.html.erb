@@ -13,19 +13,18 @@
 
 <body>
 
-    <%
-=begin%>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%
-=end%>
 
     <%if !current_user.nil?%>
+    <%= link_to "Home", root_path %>
+    <%= 
+    link_to("Account Settings", edit_user_registration_path)
+    %>
     <%=
         link_to('Sign out', destroy_user_session_path, :method => 'delete', class: 'btn btn-danger m-5')
     %>
     <%end%>
-    <%= link_to "Home", root_path %>
     <%= yield %>
 </body>
 

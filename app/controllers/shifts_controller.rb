@@ -25,7 +25,7 @@ class ShiftsController < ApplicationController
     @shift = Shift.new(shift_params)
     respond_to do |format|
       if @shift.save
-        format.html { redirect_to @shift, notice: "Shift was successfully created." }
+        format.html { redirect_to shifts_path, notice: "Shift was successfully created." }
         format.json { render :show, status: :created, location: @shift }
       else
         format.html { render :new, status: :unprocessable_entity }

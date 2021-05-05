@@ -32,7 +32,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    # super
+    super
   end
 
   # GET /resource/cancel

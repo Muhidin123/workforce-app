@@ -1,16 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Shifts</h1>
 
 <table border="1">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Shift Start </th>
-            <th>Shift Finish</th>
+            <th>Employee Name</th>
+            <th>Shift Start Time</th>
+            <th>Shift Finish Time</th>
             <th>Break length(minutes)</th>
             <th>Hours worked</th>
             <th>Shift cost</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
         </tr>
     </thead>
 
@@ -23,12 +24,13 @@
             <td><%= shift.break_length %></td>
             <td><%= total_hours_worked(shift.start, shift.finish, shift.break_length)%></td>
             <td>$<%= shift_cost(shift.start, shift.finish, shift.break_length)%></td>
+            <td><%= link_to("Edit shift", edit_shift_path(shift)) %></td>
+            <td><%= link_to("Delete shift", shift_path(shift), method: :delete) %></td>
+
         </tr>
         <% end %>
-        <tr>
-            <td><%= render template: "shifts/new", shift: @shift %></td>
-        </tr>
     </tbody>
 </table>
+<td><%= render template: "shifts/new", shift: @shift %></td>
 
 <br>
