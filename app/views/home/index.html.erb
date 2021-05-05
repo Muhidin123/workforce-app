@@ -17,9 +17,8 @@
     <%= render template: "organizations/show", organization: @organization = current_user.organization %>
     <%else%>
     <p>You are not a member of any organization please join and existing one or create a new one</p>
-    <%= render template: "organizations/index" ,organizations: @organizations %>
+    <%= render template: "organizations/index" ,organizations: @organizations, cached: true %>
     <%end%>
 </body>
-
 
 </html>

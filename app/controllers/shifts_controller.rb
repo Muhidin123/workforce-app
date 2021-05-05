@@ -3,7 +3,7 @@ class ShiftsController < ApplicationController
 
   # GET /shifts or /shifts.json
   def index
-    @shifts = Shift.all
+    @shifts = Shift.all.order(created_at: :desc)
     @shift = Shift.new
   end
 
@@ -38,7 +38,7 @@ class ShiftsController < ApplicationController
   def update
     respond_to do |format|
       if @shift.update(shift_params)
-        format.html { redirect_to @shift, notice: "Shift was successfully updated." }
+        format.html { redirect_to root_path, notice: "Shift was successfully updated." }
         format.json { render :show, status: :ok, location: @shift }
       else
         format.html { render :edit, status: :unprocessable_entity }

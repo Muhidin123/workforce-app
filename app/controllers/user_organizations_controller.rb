@@ -12,7 +12,7 @@ class UserOrganizationsController < ApplicationController
 
     def remove_organization
         user = User.find(current_user.id)
-
+        Shift.where(user_id: current_user.id).destroy_all
         if user.update(organization_id: nil)
             redirect_to root_path, notice: "You just left organization."
         else
