@@ -1,6 +1,7 @@
 class UserOrganizationsController < ApplicationController
     
     def assign_organization
+        
         user = User.find(current_user.id)
         if user.update(user_params)
             redirect_to root_path, notice: "Organization joined."
@@ -11,7 +12,9 @@ class UserOrganizationsController < ApplicationController
 
 
     def remove_organization
+
         user = User.find(current_user.id)
+        #it will destroy all shifts once user leaves the organization
         Shift.where(user_id: current_user.id).destroy_all
         if user.update(organization_id: nil)
             redirect_to root_path, notice: "You just left organization."

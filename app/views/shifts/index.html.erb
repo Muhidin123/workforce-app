@@ -16,7 +16,7 @@
     </thead>
 
     <tbody>
-        <% sanitize_shifts(@shifts).each do |shift| %>
+        <% @shifts.each do |shift| %>
         <tr>
             <td><%= shift.user.name %></td>
             <td><%= convert_time(shift.start)%></td>
