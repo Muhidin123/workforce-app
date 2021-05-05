@@ -14,10 +14,11 @@
 
     <%if current_user.organization%>
     <p>Logged in as <%= current_user.name%></p>
+    <%= render template: "organizations/show", organization: @organization = current_user.organization %>
     <%else%>
     <p>You are not a member of any organization please join and existing one or create a new one</p>
-    <%end%>
     <%= render template: "organizations/index" ,organizations: @organizations %>
+    <%end%>
 </body>
 
 
