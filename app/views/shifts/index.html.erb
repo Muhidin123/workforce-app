@@ -9,7 +9,7 @@
             <th>Shift Start </th>
             <th>Shift Finish</th>
             <th>Break length(minutes)</th>
-            <th>Total hours worked</th>
+            <th>Hours worked</th>
             <th>Shift cost</th>
         </tr>
     </thead>
@@ -21,11 +21,14 @@
             <td><%= convert_time(shift.start)%></td>
             <td><%= convert_time(shift.finish) %></td>
             <td><%= shift.break_length %></td>
+            <td><%= total_hours_worked(shift.start, shift.finish, shift.break_length)%></td>
+            <td>$<%= shift_cost(shift.start, shift.finish, shift.break_length)%></td>
         </tr>
         <% end %>
+        <tr>
+            <td><%= render template: "shifts/new", shift: @shift %></td>
+        </tr>
     </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Shift', new_shift_path %>

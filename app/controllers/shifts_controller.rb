@@ -4,6 +4,7 @@ class ShiftsController < ApplicationController
   # GET /shifts or /shifts.json
   def index
     @shifts = Shift.all
+    @shift = Shift.new
   end
 
   # GET /shifts/1 or /shifts/1.json
@@ -22,7 +23,6 @@ class ShiftsController < ApplicationController
   # POST /shifts or /shifts.json
   def create
     @shift = Shift.new(shift_params)
-
     respond_to do |format|
       if @shift.save
         format.html { redirect_to @shift, notice: "Shift was successfully created." }

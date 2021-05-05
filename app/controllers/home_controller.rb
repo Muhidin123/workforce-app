@@ -1,6 +1,6 @@
 require 'byebug'
 class HomeController < ApplicationController
     def index
-        @organizations = Organization.all
+    @organizations = Organization.all
     end
 end
