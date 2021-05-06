@@ -76,7 +76,7 @@ To check your current ruby version: run `ruby -v` in your terminal
    - `rvm --default use ruby-3.0.1`
 
 In case you do not have RVM installed follow this great tutorial:
-- [RVM INSTALLATION]("https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/install_language_runtime.html)
+- [rvm installation](https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/install_language_runtime.html)
 
 
 

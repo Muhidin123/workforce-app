@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   belongs_to :organization, optional: true
   has_many :shifts, dependent: :destroy
+  has_many :brakes, through: :shifts
   validates :name, presence: true
 
 

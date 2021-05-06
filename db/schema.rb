@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_140100) do
+ActiveRecord::Schema.define(version: 2021_05_06_183618) do
+
+  create_table "breaks", force: :cascade do |t|
+    t.integer "shift_id", null: false
+    t.integer "break_length", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shift_id"], name: "index_breaks_on_shift_id"
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string "name", null: false
@@ -44,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_140100) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "breaks", "shifts"
   add_foreign_key "shifts", "users"
   add_foreign_key "users", "organizations"
 end
