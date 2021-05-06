@@ -1,16 +1,16 @@
 <h1>Shifts</h1>
 
-<table border="1">
+<table border="1" class="table">
     <thead>
         <tr>
-            <th>Employee Name</th>
-            <th>Shift Start Time</th>
-            <th>Shift Finish Time</th>
-            <th>Break length(minutes)</th>
-            <th>Hours worked</th>
-            <th>Shift cost</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Shift Start Time</th>
+            <th scope="col">Shift Finish Time</th>
+            <th scope="col">Break length(minutes)</th>
+            <th scope="col">Hours worked</th>
+            <th scope="col">Shift cost</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
 
         </tr>
     </thead>
@@ -18,7 +18,7 @@
     <tbody>
         <% @shifts.each do |shift| %>
         <tr>
-            <td><%= shift.user.name %></td>
+            <td scope="row"><%= shift.user.name %></td>
             <td><%= convert_time(shift.start)%></td>
             <td><%= convert_time(shift.finish) %></td>
             <td><%= shift.break_length %></td>

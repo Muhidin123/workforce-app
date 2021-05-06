@@ -23,3 +23,8 @@ Things you may want to cover:
 
 * ...
 # workforce-app
+
+
+
+In case of Webpacker::Manifest::MissingEntryError in Devise::Sessions #new ERROR
+#bundle exec rails webpacker:install
