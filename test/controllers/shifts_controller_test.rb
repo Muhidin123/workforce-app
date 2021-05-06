@@ -22,10 +22,11 @@ class ShiftsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to shifts_path
   end
 
-  test "should show shift" do
-    get shift_url(@shift)
-    assert_response :success
-  end
+  #test will fail because in routes.rb route is prohibited from visiting
+  # test "should show shift" do
+  #   get shift_url(@shift)
+  #   assert_response :success
+  # end
 
   test "should get edit" do
     get edit_shift_url(@shift)

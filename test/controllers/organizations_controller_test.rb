@@ -29,10 +29,11 @@ class OrganizationsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
-  test "should show organization" do
-    get organization_url(@organization)
-    assert_response :success
-  end
+    #test will fail because in routes.rb route is prohibited from visiting
+  # test "should show organization" do
+  #   get organization_url(@organization)
+  #   assert_response :success
+  # end
 
   test "should get edit" do
     get edit_organization_url(@organization)
@@ -47,10 +48,10 @@ class OrganizationsControllerTest < ActionDispatch::IntegrationTest
 
 
   #users will not be able to destroy organizations when using application
-  test "should destroy organization" do
-    assert_difference('Organization.count', -1) do
-      delete organization_url(@organization)
-    end
-    assert_redirected_to organizations_url
-  end
+  # test "should destroy organization" do
+  #   assert_difference('Organization.count', -1) do
+  #     delete organization_url(@organization)
+  #   end
+  #   assert_redirected_to organizations_url
+  # end
 end
