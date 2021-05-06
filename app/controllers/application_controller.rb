@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
     :address => 'smtp.gmail.com',
     :domain => 'mail.google.com',
     :port => 587,
-    :user_name => 'your.email@example.com ',
-    :password => "yourEmailPassword123!",
+    :user_name => ENV['MAILER_EMAIL'],
+    :password => ENV['MAILER_PASSWORD'],
     :authentication => 'login',
     :enable_starttls_auto => true
   }
