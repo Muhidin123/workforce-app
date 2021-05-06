@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
     :address => 'smtp.gmail.com',
     :domain => 'mail.google.com',
     :port => 587,
-    :user_name => 'your.email@gmail.com,',
-    :password => 'yourPassword',
+    :user_name => 'm.place.flatiron@gmail.com',
+    :password => 'Workforce1!',
     :authentication => 'login',
     :enable_starttls_auto => true
   }
@@ -20,6 +20,5 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
-
-
+  
 end
