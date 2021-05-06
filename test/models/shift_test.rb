@@ -21,4 +21,11 @@ class ShiftTest < ActiveSupport::TestCase
     shift = Shift.new(user_id: 1,  start: DateTime.now, finish: DateTime.now)
     assert shift.save, "Not saving without break_length"
   end
+
+
+  test "Should not save if start date is before end date" do
+    shift = Shift.new(user_id: 1,  start: (DateTime.now + 1.day), finish: DateTime.now)
+    assert_not shift.save, "Saved with start date before end date"
+  end
+
 end
