@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :breaks
   resources :shifts, except: [:show]
 
   resources :organizations, except: [:delete, :show]
