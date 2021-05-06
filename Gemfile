@@ -22,8 +22,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-gem 'time_difference'
+
+#since ruby 3.0.1 does not come with minitest out of the box this gem is required to run tests
 gem 'rexml', '~> 3.2.4'
+
+#validates time
+gem 'validates_timeliness', '~> 6.0.0.alpha1'
 
 
 # Use Active Storage variant
