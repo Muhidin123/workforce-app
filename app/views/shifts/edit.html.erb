@@ -2,5 +2,11 @@
 
 <%= render 'form', shift: @shift %>
 
+<%
+#uncomment this code to add link so user can see individual shift
+
+=begin%>
 <%= link_to 'Show', @shift %> |
+<%
+=end%>
 <%= link_to 'Back', shifts_path %>

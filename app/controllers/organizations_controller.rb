@@ -36,6 +36,7 @@ class OrganizationsController < ApplicationController
       end
     end
   end
+  
 
   # PATCH/PUT /organizations/1 or /organizations/1.json
   def update
@@ -51,15 +52,18 @@ class OrganizationsController < ApplicationController
   end
 
   # DELETE /organizations/1 or /organizations/1.json
-  def destroy
-    @organization.destroy
-    respond_to do |format|
-      format.html { redirect_to organizations_url, notice: "Organization was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
+
+  #Uncomment this code in case you wan to enable user to delete organization
+  # def destroy
+  #   @organization.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to organizations_url, notice: "Organization was successfully destroyed." }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_organization
       @organization = Organization.find(params[:id])

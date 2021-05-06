@@ -12,7 +12,6 @@ class UserOrganizationsController < ApplicationController
 
 
     def remove_organization
-
         user = User.find(current_user.id)
         #it will destroy all shifts once user leaves the organization
         Shift.where(user_id: current_user.id).destroy_all

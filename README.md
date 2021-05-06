@@ -28,3 +28,12 @@ Things you may want to cover:
 
 In case of Webpacker::Manifest::MissingEntryError in Devise::Sessions #new ERROR
 #bundle exec rails webpacker:install
+
+
+ :address => 'smtp.gmail.com',
+    :domain => 'mail.google.com',
+    :port => 587,
+    :user_name => 'your.email@gmail.com,
+    :password => 'yourPassword',
+    :authentication => 'login',
+    :enable_starttls_auto => true

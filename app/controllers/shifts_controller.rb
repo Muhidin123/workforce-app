@@ -3,10 +3,10 @@ class ShiftsController < ApplicationController
 
   # GET /shifts or /shifts.json
   def index
+
     #get all shifts that are from same organization that current logged in user is
     @shifts = Shift.all.order(created_at: :desc).select {|shift| shift.user.organization == current_user.organization}
     @shift = Shift.new
-
   end
 
   # GET /shifts/1 or /shifts/1.json
