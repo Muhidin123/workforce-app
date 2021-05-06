@@ -3,7 +3,9 @@ class User < ApplicationRecord
   has_many :shifts, dependent: :destroy
   validates :name, presence: true
 
-  
+
+
+  #Validations for password and check if email is already present are done by: :database_authenticatable, and 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
