@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_183618) do
+ActiveRecord::Schema.define(version: 2021_05_07_002558) do
 
   create_table "breaks", force: :cascade do |t|
     t.integer "shift_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_183618) do
 
   create_table "organizations", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "hourly_rate", null: false
+    t.float "hourly_rate", default: 0.0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
