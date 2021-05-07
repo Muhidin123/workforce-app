@@ -29,6 +29,7 @@ Fork or clone this project to your machine navigate to the project directory
   - run `rails db:setup` or `rake db:setup` to setup your database
   - run `rails db:migrate` or `rake db:migrate`
     - Migrations to the database will be run in order they were created
+  - run `rails db:seed` to seed initial organization data
 
 ### Running the application
 
@@ -58,7 +59,7 @@ Application has a setup for sending an email through Gmail services example: use
 - :domain => 'mail.google.com',
 - :port => 587,
 - :user_name => `your.email@gmail.com`,
-  - change this line to desired email you want to sent tokens. Example: `noreply@application.com`
+  - change this line to desired email you want to send tokens. Example: `noreply@application.com`
 - :password => 'yourPassword',
   - #change this line to your email password
 - :authentication => 'login',
