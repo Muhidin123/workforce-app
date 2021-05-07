@@ -1,7 +1,8 @@
 module ShiftsHelper
 
 #display only shifts related to current organization that user is in
-# same code is placed in Shifts controller but it is possible to do it this way also
+#same code is placed in Shifts controller but it is possible to do it this way also
+
   # def sanitize_shifts(shifts)
   #   shifts.select {|shift| shift.user.organization == current_user.organization}
   # end

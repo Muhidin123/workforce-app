@@ -83,5 +83,9 @@ In case you do not have RVM installed follow this great tutorial:
   - `bundle exec rails webpacker:install`
 
 - Bundler version not compatible or outdated:
+
   - run `gem install bundler`
-  - [Bundler documentation]("https://bundler.io/")
+  - [Bundler documentation](https://bundler.io/)
+
+- Rails version not compatible or outdated:
+  - [Rails documentation](https://github.com/rails/rails)

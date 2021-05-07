@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :organizations, except: [:delete, :show]
 
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
   }
 
 

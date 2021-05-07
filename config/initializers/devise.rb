@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'c9c7a7ff029a5b5ab246cfbdc408d695770960f234210f87ded76a81dbc73fb270aad21a3db303e34b068d27820d3b87c82bcb5ccb947b2a09c2e175ccd9a177'
+  # config.pepper = ENV['DEVISE_PEPER']
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
