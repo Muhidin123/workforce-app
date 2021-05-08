@@ -3,25 +3,25 @@
 <h1>Shift Breaks</h1>
 
 <table>
-    <thead>
-        <tr>
-            <th>Shift</th>
-            <th>Break length</th>
-            <th colspan="3"></th>
-        </tr>
-    </thead>
+  <thead>
+    <tr>
+      <th>Shift</th>
+      <th>Break length</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-    <tbody>
-        <% @shift_breaks.each do |shift_break| %>
-        <tr>
-            <td><%= shift_break.shift_id %></td>
-            <td><%= shift_break.break_length %></td>
-            <td><%= link_to 'Show', shift_break %></td>
-            <td><%= link_to 'Edit', edit_shift_break_path(shift_break) %></td>
-            <td><%= link_to 'Destroy', shift_break, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-    </tbody>
+  <tbody>
+    <% @shift_breaks.each do |shift_break| %>
+      <tr>
+        <td><%= shift_break.shift_id %></td>
+        <td><%= shift_break.break_length %></td>
+        <td><%= link_to 'Show', shift_break %></td>
+        <td><%= link_to 'Edit', edit_shift_break_path(shift_break) %></td>
+        <td><%= link_to 'Destroy', shift_break, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br>

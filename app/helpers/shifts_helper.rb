@@ -39,13 +39,4 @@ module ShiftsHelper
     cost = hours * rate + (minutes * (rate / 60))
     return cost.round(2)
   end
-  
-  def all_breaks_of_one_user_in_a_shift(breaks)
-    sum = 0
-    breaks.each do |shift_break|
-      sum+= shift_break.break_length
-    end
-    sum
-  end
-
 end
