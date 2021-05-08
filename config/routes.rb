@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
   resources :organizations, except: [:delete, :show]
 
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-  }
+  devise_for :users
+  # controllers: {
+  #   registrations: 'users/registrations',
+  # }
 
 
   #updates user organization if they want to change it

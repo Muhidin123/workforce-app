@@ -22,7 +22,7 @@
     <%if !current_user.nil?%>
     <%= link_to "Home", root_path %>
     <%= link_to("Account Settings", edit_user_registration_path)%>
-    <%= link_to('Sign out', destroy_user_session_path, :method => 'delete')%>
+    <%= link_to("Sign out", destroy_user_session_path, :method => 'delete') %>
     <%end%>
     <%= yield %>
 </body>
