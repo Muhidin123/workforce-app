@@ -21,9 +21,14 @@
             <td scope="row"><%= shift.user.name %></td>
             <td><%= convert_time(shift.start)%></td>
             <td><%= convert_time(shift.finish) %></td>
-            <td><%= shift.break_length %></td>
-            <td><%= total_hours_worked(shift.start, shift.finish, shift.break_length)%></td>
-            <td>$<%= shift_cost(shift.start, shift.finish, shift.break_length)%></td>
+            <td>
+                <%= all_breaks_of_one_user_in_a_shift(shift.shift_breaks)%>
+                <%if current_user.id == shift.user_id%>
+                <%= render template: "shift_breaks/new",locals: { shift: shift.id }%>
+                <%end%>
+            </td>
+            <td><%= total_hours_worked(shift.start, shift.finish, all_breaks_of_one_user_in_a_shift(shift.shift_breaks))%></td>
+            <td><%= number_to_currency(shift_cost(shift.start, shift.finish, all_breaks_of_one_user_in_a_shift(shift.shift_breaks)), :unit => "$")%></td>
             <%if current_user.id == shift.user_id%>
             <td><%= link_to("Edit shift", edit_shift_path(shift)) %></td>
             <td><%= link_to("Delete shift", shift_path(shift), method: :delete) %></td>
