@@ -28,9 +28,7 @@ class ShiftsController < ApplicationController
   # POST /shifts or /shifts.json
   def create
     @shift = Shift.new(shift_params)
-    if (break_params[:break_length].to_i > 0)
       @shift.shift_breaks.build(break_params)
-    end
     respond_to do |format|
       if @shift.save
         format.html { redirect_to shifts_path, notice: "Shift was successfully created." }

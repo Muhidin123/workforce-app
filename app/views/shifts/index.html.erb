@@ -23,8 +23,8 @@
             <td><%= convert_time(shift.finish) %></td>
             <td>
                 <%= all_breaks_of_one_user_in_a_shift(shift.shift_breaks)%>
-                <% if current_user.id == shift.user_id %>
-                <%= render template: "shift_breaks/test", locals: { shift_id: shift.id }%>
+                <%if current_user.id == shift.user_id%>
+                <%= render template: "shift_breaks/new",locals: { shift: shift.id }%>
                 <%end%>
             </td>
             <td><%= total_hours_worked(shift.start, shift.finish, all_breaks_of_one_user_in_a_shift(shift.shift_breaks))%></td>

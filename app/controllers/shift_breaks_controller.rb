@@ -30,7 +30,7 @@ class ShiftBreaksController < ApplicationController
   def create
     @shift_break = ShiftBreak.new(shift_break_params)
     respond_to do |format|
-      if @shift_break.save 
+      if @shift_break.save
         format.html { redirect_to shifts_path, notice: "Shift break was successfully created." }
         format.json { render :show, status: :created, location: @shift_break }
       else
