@@ -22,11 +22,11 @@
     <%= form.datetime_local_field :finish %>
 </div>
 <div>
-    <p>Once you add first break you will be able to add more breaks if necessary</p>
     <%= fields_for :shift_breaks do |break_form|%>
     <div class="field">
+        <em>You can update this field at a later time</em><br />
         <%= break_form.label :break_length%>
-        <%= break_form.number_field :break_length, step: 1 %>
+        <%= break_form.number_field :break_length, value: 0 %>
     </div>
     <%end%>
 </div>

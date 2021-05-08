@@ -1,3 +1,5 @@
+
+require 'byebug'
 class ShiftBreaksController < ApplicationController
   before_action :set_shift_break, only: %i[ show edit update destroy ]
 
@@ -12,6 +14,11 @@ class ShiftBreaksController < ApplicationController
 
   # GET /shift_breaks/new
   def new
+    byebug
+    @shift_break = ShiftBreak.new
+  end
+
+  def test
     @shift_break = ShiftBreak.new
   end
 
@@ -22,13 +29,12 @@ class ShiftBreaksController < ApplicationController
   # POST /shift_breaks or /shift_breaks.json
   def create
     @shift_break = ShiftBreak.new(shift_break_params)
-
     respond_to do |format|
-      if @shift_break.save
+      if @shift_break.save 
         format.html { redirect_to shifts_path, notice: "Shift break was successfully created." }
         format.json { render :show, status: :created, location: @shift_break }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity, notice: "Shift must be more than 0" }
         format.json { render json: @shift_break.errors, status: :unprocessable_entity }
       end
     end
