@@ -1,16 +1,15 @@
-<%= form_with(model: shift) do |form| %>
-<% if shift.errors.any? %>
+<%= form_with(model: @shift) do |form| %>
+<% if @shift.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(shift.errors.count, "error") %> errors:</h2>
+    <h2><%= pluralize(@shift.errors.count, "error") %> errors:</h2>
 
     <ul>
-        <% shift.errors.each do |error| %>
+        <% @shift.errors.each do |error| %>
         <li><%= error.full_message %></li>
         <% end %>
     </ul>
 </div>
 <% end %>
-
 <%= form.hidden_field :user_id, :value => current_user.id %>
 
 <div class="field">
@@ -22,12 +21,15 @@
     <%= form.label :finish %>
     <%= form.datetime_local_field :finish %>
 </div>
-
-<div class="field">
-    <%= form.label "Break length(minutes)" %>
-    <%= form.number_field :break_length, value: shift.break_length%>
+<div>
+    <%= fields_for :shift_breaks do |break_form|%>
+    <div class="field">
+        <em>You can update this field at a later time</em><br />
+        <%= break_form.label :break_length%>
+        <%= break_form.number_field :break_length, value: 0 %>
+    </div>
+    <%end%>
 </div>
-
 <div class="actions">
     <%= form.submit %>
 </div>

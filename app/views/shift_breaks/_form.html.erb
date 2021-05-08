@@ -1,0 +1,27 @@
+<%= form_with(model: shift_break) do |form| %>
+  <% if shift_break.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shift_break.errors.count, "error") %> prohibited this shift_break from being saved:</h2>
+
+      <ul>
+        <% shift_break.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :shift_id %>
+    <%= form.text_field :shift_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :break_length %>
+    <%= form.number_field :break_length %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

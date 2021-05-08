@@ -1,0 +1,12 @@
+<%=form_for :shift_break, url: shift_breaks_path, method: "post" do |f|%>
+
+
+<%= f.hidden_field :shift_id, :value => shift %>
+
+<div class="field">
+    <%= f.label :break_length %>
+    <%= f.number_field :break_length %>
+</div>
+
+<%= f.submit "Add break"%>
+<% end %>

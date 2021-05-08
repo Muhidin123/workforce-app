@@ -1,4 +1,7 @@
+require 'byebug'
+
 class ShiftsController < ApplicationController
+skip_before_action :verify_authenticity_token
   before_action :set_shift, only: %i[ show edit update destroy ]
 
   # GET /shifts or /shifts.json
@@ -25,6 +28,7 @@ class ShiftsController < ApplicationController
   # POST /shifts or /shifts.json
   def create
     @shift = Shift.new(shift_params)
+      @shift.shift_breaks.build(break_params)
     respond_to do |format|
       if @shift.save
         format.html { redirect_to shifts_path, notice: "Shift was successfully created." }
@@ -67,5 +71,9 @@ class ShiftsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def shift_params
       params.require(:shift).permit(:user_id, :start, :finish, :break_length)
+    end
+
+    def break_params
+      params.require(:shift_breaks).permit(:break_length)
     end
 end
