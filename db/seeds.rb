@@ -7,4 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Organization.create(name: "KFC with float", hourly_rate: 17.7)
+Organization.create(name: "Muhidin's Burgers", hourly_rate: 22.5)
+Organization.create(name: "Muhidin's Pizza", hourly_rate: 23)
+Organization.create(name: "Workforce", hourly_rate: 25.9)

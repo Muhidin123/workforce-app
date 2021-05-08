@@ -30,6 +30,10 @@ gem 'rexml', '~> 3.2.4'
 gem 'validates_timeliness', '~> 6.0.0.alpha1'
 
 
+gem 'nested_form_fields'
+gem 'jquery-rails'
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

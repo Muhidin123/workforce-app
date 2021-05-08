@@ -29,6 +29,7 @@ Fork or clone this project to your machine navigate to the project directory
   - run `rails db:setup` or `rake db:setup` to setup your database
   - run `rails db:migrate` or `rake db:migrate`
     - Migrations to the database will be run in order they were created
+  - run `rails db:seed` to seed initial organization data
 
 ### Running the application
 
