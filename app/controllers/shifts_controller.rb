@@ -16,10 +16,11 @@ before_action :set_shift, only: %i[ show edit update destroy ]
     @shifts = @initial_shift_query
 
     #order shifts by user names
-    @shifts = Shift.joins(:user).merge(User.order(name: :asc)) if params[:order_by_name]
+    
+    @shifts = @shifts.sort_by{|shift| shift.user.name} if params[:order_by_name]
 
     #search all shifts by users name
-    @shifts = @shifts.select {|shift| shift.user.name.downcase.include? session[:search_by_name]} if session[:search_by_name]
+    @shifts = @shifts.select {|shift| shift.user.name.downcase.include? session[:search_by_name].downcase} if session[:search_by_name]
   end
   
   def filter
