@@ -39,10 +39,7 @@ When all the previous steps are done: - run the server by typing `rails s` or `r
 
 - Application has some tests written and ready to run to run test:
 
-- To run all tests navigate to /tests:
-  - `cd test/`
-  - run `bin/rails test test/`
-- To run a specific test suit example controller test navigate to the desired controller:
+- To run a test suit example controller test navigate to the desired controller:
   - `cd test/`
   - run `bin/rails test test/controllers`
 - To run a specific controller test or any other test:
