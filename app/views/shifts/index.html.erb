@@ -1,5 +1,7 @@
 <h1>Shifts</h1>
-
+<br />
+<%= link_to "Sort by name", shifts_path( order_by_name: true),:class => "btn btn-light"%> | <%= link_to "Sort by latest(show all shifts)" , shifts_path ,:class => "btn btn-light"%>
+<%= render "search" %>
 <table border="1" class="table">
     <thead>
         <tr>
@@ -30,8 +32,8 @@
             <td><%= total_hours_worked(shift.start, shift.finish, all_breaks_of_one_user_in_a_shift(shift.shift_breaks))%></td>
             <td><%= number_to_currency(shift_cost(shift.start, shift.finish, all_breaks_of_one_user_in_a_shift(shift.shift_breaks)), :unit => "$")%></td>
             <%if current_user.id == shift.user_id%>
-            <td><%= link_to("Edit shift", edit_shift_path(shift)) %></td>
-            <td><%= link_to("Delete shift", shift_path(shift), method: :delete) %></td>
+            <td><%= link_to("Edit shift", edit_shift_path(shift),:class => "btn btn-light") %></td>
+            <td><%= link_to("Delete shift", shift_path(shift), method: :delete,:class => "btn btn-light")%></td>
             <%else%>
             <td>Not authorized</td>
             <td>Not authorized</td>

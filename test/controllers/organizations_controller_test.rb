@@ -11,10 +11,10 @@ class OrganizationsControllerTest < ActionDispatch::IntegrationTest
     login_as(users(:one), :scope => :user)
   end
   
-  test "should get index" do
-    get '/organizations'
-    assert_response :success
-  end
+  # test "should get index" do
+  #   get '/organizations'
+  #   assert_response :success
+  # end
 
 
   test "should get new" do

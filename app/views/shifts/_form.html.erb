@@ -11,26 +11,27 @@
 </div>
 <% end %>
 <%= form.hidden_field :user_id, :value => current_user.id %>
-
-<div class="field">
-    <%= form.label :start %>
-    <%= form.datetime_local_field :start %>
-</div>
-
-<div class="field">
-    <%= form.label :finish %>
-    <%= form.datetime_local_field :finish %>
-</div>
-<div>
-    <%= fields_for :shift_breaks do |break_form|%>
+<div class="form-group">
     <div class="field">
-        <em>You can update this field at a later time</em><br />
-        <%= break_form.label :break_length%>
-        <%= break_form.number_field :break_length, value: 0 %>
+        <%= form.label :start %>
+        <%= form.datetime_local_field :start ,:class => "form-control"%>
     </div>
-    <%end%>
-</div>
-<div class="actions">
-    <%= form.submit %>
+
+    <div class="field">
+        <%= form.label :finish %>
+        <%= form.datetime_local_field :finish,:class => "form-control" %>
+    </div>
+    <div>
+        <%= fields_for :shift_breaks do |break_form|%>
+        <div class="field">
+            <em>You can update this field at a later time</em><br />
+            <%= break_form.label :break_length%>
+            <%= break_form.number_field :break_length, value: 0 ,:class => "form-control"%>
+        </div>
+        <%end%>
+    </div>
+    <div class="actions">
+        <%= form.submit :class => "btn btn-light"%>
+    </div>
 </div>
 <% end %>

@@ -17,7 +17,7 @@ class ShiftsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create shift" do
     assert_difference('Shift.count') do
-      post shifts_path, params: { shift: { break_length: @shift.break_length, finish: @shift.finish, start: @shift.start, user_id: users(:one).id }}
+      post shifts_path, params: { shift: {finish: @shift.finish, start: @shift.start, user_id: users(:one).id}, shift_breaks: {break_length: 0}}
     end
     assert_redirected_to shifts_path
   end
@@ -34,7 +34,7 @@ class ShiftsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update shift" do
-    patch shift_url(@shift), params: { shift: { break_length: @shift.break_length, finish: @shift.finish, start: @shift.start, user_id: users(:one).id } }
+    patch shift_url(@shift), params: { shift: {finish: @shift.finish, start: @shift.start, user_id: users(:one).id } }
     assert_redirected_to root_path
   end
 

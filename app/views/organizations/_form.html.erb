@@ -13,15 +13,15 @@
 
 <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name , :class => "form-control"%>
 </div>
 
 <div class="field">
     <%= form.label :hourly_rate %>
-    <%= form.number_field :hourly_rate, step: 0.1 %>
+    <%= form.number_field :hourly_rate, step: 0.1,:class => "form-control"%>
 </div>
 
 <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => "btn btn-light" %>
 </div>
 <% end %>

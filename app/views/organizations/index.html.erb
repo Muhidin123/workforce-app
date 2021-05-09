@@ -13,12 +13,12 @@
         <% @organizations.each do |organization| %>
         <tr>
             <td><%= organization.name %></td>
-            <td><%= organization.hourly_rate %></td>
-            <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+            <td><%= number_to_currency(organization.hourly_rate) %></td>
+            <td><%= link_to 'Edit', edit_organization_path(organization) ,:class => "btn btn-light"%></td>
             <%if current_user.organization && current_user.organization.name == organization.name%>
-            <td><%= link_to "Leave organization", remove_user_organization_path, method: :put%> <em>If you want to create another organization and join please leave current organization</em></td>
+            <td><%= link_to "Leave organization", remove_user_organization_path, method: :put ,:class => "btn btn-light"%></td>
             <%else%>
-            <td><%= link_to "Join", update_user_organization_path(:user => {:organization_id => organization.id}), method: :put %></td>
+            <td><%= link_to "Join", update_user_organization_path(:user => {:organization_id => organization.id}), method: :put ,:class => "btn btn-light"%></td>
             <%end%>
         </tr>
         <% end %>
@@ -27,10 +27,4 @@
 
 <br>
 
-<%
-=begin%>
-<%= link_to 'Create and join new organization', new_organization_path %>
-<%
-=end%>
-
-<%= link_to_if(!current_user.organization, 'Create and Join new Organization', new_organization_path){}%>
+<%= link_to 'Create and join new organization', new_organization_path ,:class => "btn btn-light" %>
