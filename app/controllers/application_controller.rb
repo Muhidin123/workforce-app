@@ -15,6 +15,14 @@ class ApplicationController < ActionController::Base
     :authentication => 'login',
     :enable_starttls_auto => true
   }
+
+  def initialize_search()
+    if session[:sort_by_name]
+      return @shifts = Shift.joins(:user).merge(User.order(name: :asc))
+    else
+      return @shifts = Shift.all.order(created_at: :desc).select {|shift| shift.user.organization == current_user.organization}
+  end
+end
   
   
   private

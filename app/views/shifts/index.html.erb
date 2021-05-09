@@ -1,5 +1,11 @@
 <h1>Shifts</h1>
-
+<br />
+<%= link_to "Order by name", shifts_path( order_by_name: true)%> | <%= link_to "Show all users", shifts_path %>
+<form action="/shifts" method="GET">
+    <input type="text" name="search">
+    <input type="submit" value="Search by name">
+</form>
+view raw
 <table border="1" class="table">
     <thead>
         <tr>

@@ -15,7 +15,7 @@
         <% @organizations.each do |organization| %>
         <tr>
             <td><%= organization.name %></td>
-            <td><%= organization.hourly_rate %></td>
+            <td><%= number_to_currency(organization.hourly_rate) %></td>
             <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
             <%if current_user.organization && current_user.organization.name == organization.name%>
             <td><%= link_to "Leave organization", remove_user_organization_path, method: :put%></td>
