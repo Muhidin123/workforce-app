@@ -6,18 +6,20 @@ before_action :set_shift, only: %i[ show edit update destroy ]
 
   # GET /shifts or /shifts.json
   def index
-    @shift = Shift.new
+    @shift = Shift.new #new shift model
+    @initial_shift_query = Shift.all.order(created_at: :desc).select {|shift| shift.user.organization == current_user.organization}
 
     #store in session so on refresh search input is empty (it will not reset the route)
     session[:search_by_name] = params[:search]
+    
     #get all shifts that are from same organization that current logged in user is
-    @shifts = Shift.all.order(created_at: :desc).select {|shift| shift.user.organization == current_user.organization}
+    @shifts = @initial_shift_query
 
     #order shifts by user names
     @shifts = Shift.joins(:user).merge(User.order(name: :asc)) if params[:order_by_name]
 
     #search all shifts by users name
-    @shifts = @shifts.select {|shift| shift.user.name == session[:search_by_name]} if session[:search_by_name]
+    @shifts = @shifts.select {|shift| shift.user.name.downcase.include? session[:search_by_name]} if session[:search_by_name]
   end
   
   def filter
