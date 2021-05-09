@@ -4,5 +4,4 @@ class ShiftsHelperTest< ActionView::TestCase
         assert_equal("05/05/2021 at 02:00PM", convert_time(time))
     end
     
-
 end

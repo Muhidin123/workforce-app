@@ -15,7 +15,7 @@ one:
 two:
   {
     id: 2,
-    name: "Muhidin",
+    name: "Workforce",
     email: "email@gmail.com",
     organization: organizations(:one),
   }
