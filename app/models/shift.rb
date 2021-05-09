@@ -9,7 +9,4 @@ class Shift < ApplicationRecord
   #validates that start time is before finish time of the shift
   validates_datetime :finish, after: :start
   
-
-  scope :by_name_dsc, -> () {order("user.name DESC")}
-
 end

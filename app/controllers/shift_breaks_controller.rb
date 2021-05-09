@@ -1,7 +1,5 @@
 
-require 'byebug'
 class ShiftBreaksController < ApplicationController
-  skip_before_action :verify_authenticity_token
   before_action :set_shift_break, only: %i[ show edit update destroy ]
 
   # GET /shift_breaks or /shift_breaks.json
