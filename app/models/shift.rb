@@ -8,5 +8,15 @@ class Shift < ApplicationRecord
   
   #validates that start time is before finish time of the shift
   validates_datetime :finish, after: :start
+
+
+  def self.sort_by_name(shifts)
+    shifts.sort_by{|shift| shift.user.name}
+  end
+
+
+  def self.search_by_shifts_user_name(shifts, search_input)
+    shifts.select {|shift| shift.user.name.downcase.include? search_input}
+  end
   
 end

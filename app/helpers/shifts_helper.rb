@@ -47,4 +47,6 @@ module ShiftsHelper
     end
     sum
   end
+
+
 end
