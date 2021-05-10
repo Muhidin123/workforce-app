@@ -26,10 +26,7 @@ Fork or clone this project to your machine navigate to the project directory
   - Bundler will run and install all required gems for running this application.
 
 - Database initialization
-  - run `rails db:setup` or `rake db:setup` to setup your database
-  - run `rails db:migrate` or `rake db:migrate`
-    - Migrations to the database will be run in order they were created
-  - run `rails db:seed` to seed initial organization data
+  - run `rails db:setup` or `rake db:setup` to setup database, run migrations and seed files
 
 ### Running the application
 
@@ -76,14 +73,25 @@ In case you do not have RVM installed follow this great tutorial:
 
 # Errors
 
-- In case of `Webpacker::Manifest::MissingEntryError in Devise::Sessions #new ERROR` when trying to run server with `rails server` run this command in your terminal:
+- In case of Error: `Webpacker::Manifest::MissingEntryError in Devise::Sessions #new ERROR` when trying to run server with `rails server` run this command in your terminal:
 
-  - `bundle exec rails webpacker:install`
+You got to have node.js installed to run this command:
 
-- Bundler version not compatible or outdated:
+- `bundle exec rails webpacker:install`
 
+## Bundler version not compatible or outdated:
+
+- Bundler not installed:
   - run `gem install bundler`
   - [Bundler documentation](https://bundler.io/)
+- Bundler outdated:
 
-- Rails version not compatible or outdated:
-  - [Rails documentation](https://github.com/rails/rails)
+  - run `bundle update --bundler`
+
+## Rails version not compatible or outdated:
+
+- [Rails documentation](https://github.com/rails/rails)
+
+## Error: `Ignoring racc-1.5.2 because it's extensions are not built`:
+
+- run `gem pristine racc --version 1.5.2`
