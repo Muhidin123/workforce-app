@@ -8,7 +8,7 @@ before_action :set_shift, only: %i[ show edit update destroy ]
   def index
     @shift = Shift.new #new shift model
 
-    @initial_shifts_query = Shift.all.order(created_at: :desc).select {|shift| shift.user.organization == current_user.organization}
+    @initial_shifts_query = Shift.initial_shift_fetch(current_user)
 
     #store in session so on refresh search input is empty (it will not reset the route)
     session[:search_by_name] = params[:search]
