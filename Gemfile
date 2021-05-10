@@ -32,6 +32,7 @@ gem 'validates_timeliness', '~> 6.0.0.alpha1'
 
 gem 'nested_form_fields'
 gem 'jquery-rails'
+gem 'webpacker', '~> 5.2', '>= 5.2.1'
 
 
 # Use Active Storage variant
