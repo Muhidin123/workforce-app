@@ -31,18 +31,15 @@ class ShiftBreaksController < ApplicationController
     @shift_break = ShiftBreak.new(shift_break_params)
 
     respond_to do |format|
-      if ShiftBreak.hours_total?(@shift_break, shift_break_params[:break_length].to_f)
         if shift_break_params[:break_length].to_i > 0 && @shift_break.save
-          format.html { redirect_to shifts_path, info:  "Break was successfully created." }
+          format.html { redirect_to shifts_path, notice: "Break was successfully created."}
           format.json { render :show, status: :created, location: @shift_break }
         else
-          format.html { redirect_to shifts_path, warning: "Break must be more than 0 minutes long" }
+          format.html { redirect_to shifts_path, warning: @shift_break.errors.full_messages[0] || "Break must be more than 0 minutes"}
           format.json { render json: @shift_break.errors, status: :unprocessable_entity }
         end
       end
-      format.html{redirect_to shifts_path, info: "Break can not be more than hours worked"}
-      format.json {render json: @shift_break.errors, status: :unprocessable_entity }
-    end
+    # end
   end
 
 #   # PATCH/PUT /shift_breaks/1 or /shift_breaks/1.json
