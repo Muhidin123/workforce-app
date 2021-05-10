@@ -51,9 +51,10 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  # DELETE /organizations/1 or /organizations/1.json
 
-  #Uncomment this code in case you wan to enable user to delete organization
+  # DELETE /organizations/1 or /organizations/1.json
+  #Uncomment this code in case you wan to enable user to delete organization (it will require changes to views)
+
   # def destroy
   #   @organization.destroy
   #   respond_to do |format|

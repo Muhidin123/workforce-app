@@ -1,7 +1,6 @@
 require 'byebug'
 
 class ShiftsController < ApplicationController
-# skip_before_action :verify_authenticity_token 
 before_action :set_shift, only: %i[ show edit update destroy ]
 
   # GET /shifts or /shifts.json
@@ -17,7 +16,6 @@ before_action :set_shift, only: %i[ show edit update destroy ]
     @shifts = @initial_shifts_query
 
     #order shifts by user names
-    # @shifts = @shifts.sort_by{|shift| shift.user.name} if params[:order_by_name]
     @shifts = Shift.sort_by_name(@shifts) if params[:order_by_name]
 
 
