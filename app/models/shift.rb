@@ -7,7 +7,10 @@ class Shift < ApplicationRecord
   accepts_nested_attributes_for :shift_breaks
   
   #validates presence of attributes
-  validates :user, :start, :finish, presence: true
+  validates :user, presence: true
+  validates :start, presence: true
+  validates :finish, presence: true
+
   
   #validates that start time is before finish time of the shift
   validates_datetime :finish, after: :start
@@ -31,5 +34,6 @@ class Shift < ApplicationRecord
   def self.initial_shift_fetch(current_user)
     Shift.all.order(created_at: :desc).select {|shift| shift.user.organization == current_user.organization}
   end
+
   
 end

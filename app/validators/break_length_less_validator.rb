@@ -25,14 +25,12 @@ class BreakLengthLessValidator < ActiveModel::EachValidator
       
       
     def validate_each(record, attribute, value)
-        # byebug
         if  all_breaks_of_one_user_in_a_shift(record) + value > hours_total(record)
             record.errors.add(attribute, :blank, message: "can not be more than working hours total")
         else
             true
         end
     end
-
 
     
 end
