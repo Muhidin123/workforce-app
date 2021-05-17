@@ -28,12 +28,5 @@ class Shift < ApplicationRecord
   def self.search_by_shifts_user_name(shifts, search_input)
     shifts.select {|shift| shift.user.name.downcase.include? search_input}
   end
-
-  #first fetch to all shifts that match current users organization
-  #in the future when -> user has_and_belongs_to_many :organizations this will have to change
-  def self.initial_shift_fetch(current_user)
-    Shift.all.order(created_at: :desc).select {|shift| shift.user.organization == current_user.organization}
-  end
-
   
 end
