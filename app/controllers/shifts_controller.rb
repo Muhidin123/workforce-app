@@ -40,7 +40,7 @@ before_action :set_shift, only: %i[ show edit update destroy ]
 
   # POST /shifts or /shifts.json
   def create
-    return redirect_back(fallback_location: root_path, notice: "Shift Start/Finish Can not be Empty") if shift_params[:start].blank? || shift_params[:finish].blank?
+    return redirect_back(fallback_location: root_path, alert: "Shift Start/Finish Can not be Empty") if shift_params[:start].blank? || shift_params[:finish].blank?
     @shift = Shift.new(shift_params)
     @shift.shift_breaks.build(break_params)
     respond_to do |format|
