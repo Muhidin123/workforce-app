@@ -35,7 +35,7 @@ class ShiftBreaksController < ApplicationController
           format.html { redirect_to shifts_path, notice: "Break was successfully created."}
           format.json { render :show, status: :created, location: @shift_break }
         else
-          format.html { redirect_to shifts_path, warning: @shift_break.errors.full_messages[0] || "Break must be more than 0 minutes"}
+          format.html { redirect_to shifts_path, alert: @shift_break.errors.full_messages[0] || "Break must be more than 0 minutes"}
           format.json { render json: @shift_break.errors, status: :unprocessable_entity }
         end
       end

@@ -3,43 +3,31 @@ require "application_system_test_case"
 class OrganizationsTest < ApplicationSystemTestCase
   setup do
     @organization = organizations(:one)
+
+    login_as(users(:one), :scope => :user)
   end
 
-  test "visiting the index" do
-    visit organizations_url
-    assert_selector "h1", text: "Organizations"
-  end
 
-  test "creating a Organization" do
-    visit organizations_url
-    click_on "New Organization"
+  test "creating a new organization" do
+    visit organizations_path
 
-    fill_in "Hourly rate", with: @organization.hourly_rate
-    fill_in "Name", with: @organization.name
+    click_on "Create and join new organization"
+
+    fill_in "Name", with: "Test org"
+    fill_in "Hourly rate", with: 10
+
     click_on "Create Organization"
 
-    assert_text "Organization was successfully created"
-    click_on "Back"
+    assert_text "Test org"
   end
 
-  test "updating a Organization" do
-    visit organizations_url
-    click_on "Edit", match: :first
 
-    fill_in "Hourly rate", with: @organization.hourly_rate
-    fill_in "Name", with: @organization.name
-    click_on "Update Organization"
+  test "Joining an existing organization" do
+    visit organizations_path
 
-    assert_text "Organization was successfully updated"
-    click_on "Back"
+    page.first(:link, "Join").click
+
+    assert_text "OrganizationTwo"
   end
 
-  test "destroying a Organization" do
-    visit organizations_url
-    page.accept_confirm do
-      click_on "Destroy", match: :first
-    end
-
-    assert_text "Organization was successfully destroyed"
-  end
 end

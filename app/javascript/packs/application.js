@@ -11,3 +11,15 @@ import "channels";
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+
+const handleNoticeRemoval = () => {
+  let div = document.getElementById("alert-div");
+  let button = document.getElementById("btn-close");
+  button.addEventListener("click", _e => {
+    div.style.display = "none";
+  });
+};
+
+window.addEventListener("load", () => {
+  handleNoticeRemoval();
+});
