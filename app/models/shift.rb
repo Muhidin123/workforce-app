@@ -1,9 +1,10 @@
 class Shift < ApplicationRecord
+  
   belongs_to :user
   has_many :shift_breaks, dependent: :destroy
-
+  
   #accepts nested attribute of a shift_break to create both shift and a shift break under the same form
-  attr_reader :breaks_attributes
+  attr_accessor :breaks_attributes
   accepts_nested_attributes_for :shift_breaks
   
   #validates presence of attributes
