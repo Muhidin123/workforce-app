@@ -28,7 +28,7 @@ module ShiftsHelper
     return (time_in_minutes(shift_finish, shift_start, break_length) % 60).to_i
   end
 
-  #calculate total hours worked with two helper methods -> we do this 
+  #calculate total hours worked with two helper methods -> we do this
   def total_hours_worked(start, finish, break_length)
     return "#{hours(start, finish, break_length)}h - #{minutes(start,finish,break_length)}m"
   end

@@ -12,3 +12,22 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
+const handleNoticeRemoval = () => {
+  let div = document.getElementById("alert-div");
+  div.addEventListener("click", _e => {
+    div.style.display = "none";
+  });
+};
+
+const handleNoticeDisappearance = () => {
+  let div = document.getElementById("alert-div");
+  div.style.display = "none";
+};
+
+setTimeout(() => {
+  handleNoticeRemoval();
+}, 0);
+
+setTimeout(() => {
+  handleNoticeDisappearance();
+}, 5000);
