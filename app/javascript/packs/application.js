@@ -14,20 +14,12 @@ ActiveStorage.start();
 
 const handleNoticeRemoval = () => {
   let div = document.getElementById("alert-div");
-  div.addEventListener("click", _e => {
+  let button = document.getElementById("btn-close");
+  button.addEventListener("click", _e => {
     div.style.display = "none";
   });
 };
 
-const handleNoticeDisappearance = () => {
-  let div = document.getElementById("alert-div");
-  div.style.display = "none";
-};
-
-setTimeout(() => {
+window.addEventListener("load", () => {
   handleNoticeRemoval();
-}, 0);
-
-setTimeout(() => {
-  handleNoticeDisappearance();
-}, 5000);
+});
