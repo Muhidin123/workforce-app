@@ -1,6 +1,10 @@
 class Organization < ApplicationRecord
-    has_many :users
-    has_many :shifts, through: :users
+    # has_many :users
+    has_many :user_organizations
+    has_many :users, through: :user_organizations
+    
+    has_many :organization_shifts
+    has_many :shifts, through: :organization_shifts
 
     validates :name, :hourly_rate, presence: true
 

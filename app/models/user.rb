@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  belongs_to :organization, optional: true
+  # belongs_to :organization, optional: true
+  has_many :user_organizations
+  has_many :organizations, through: :user_organizations
   has_many :shifts, dependent: :destroy
   has_many :breaks, through: :shifts
 

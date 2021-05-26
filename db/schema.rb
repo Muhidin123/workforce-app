@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_09_222626) do
+ActiveRecord::Schema.define(version: 2021_05_26_155109) do
+
+  create_table "organization_shifts", force: :cascade do |t|
+    t.integer "organization_id"
+    t.integer "shift_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organization_id"], name: "index_organization_shifts_on_organization_id"
+    t.index ["shift_id"], name: "index_organization_shifts_on_shift_id"
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string "name", null: false
@@ -36,6 +45,16 @@ ActiveRecord::Schema.define(version: 2021_05_09_222626) do
     t.index ["user_id"], name: "index_shifts_on_user_id"
   end
 
+  create_table "user_organizations", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "organization_id", null: false
+    t.float "hourly_rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organization_id"], name: "index_user_organizations_on_organization_id"
+    t.index ["user_id"], name: "index_user_organizations_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -53,5 +72,7 @@ ActiveRecord::Schema.define(version: 2021_05_09_222626) do
 
   add_foreign_key "shift_breaks", "shifts"
   add_foreign_key "shifts", "users"
+  add_foreign_key "user_organizations", "organizations"
+  add_foreign_key "user_organizations", "users"
   add_foreign_key "users", "organizations"
 end
